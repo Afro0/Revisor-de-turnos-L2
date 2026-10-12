@@ -535,6 +535,316 @@
       background: #3b82f6;
       color: #ffffff;
     }
+	/* =============================================================
+       MÓDULO: CHECKLIST SUPERNUMERARIO - PLAYSTATION TROPHIES UI
+       ============================================================= */
+    .btn-logros {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #0f172a;
+      color: #f8fafc;
+      border: 1.5px solid #334155;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-logros:hover {
+      background: #1e293b;
+      border-color: #facc15;
+    }
+
+    /* Regla exclusiva: ocultar completamente en pantallas de escritorio */
+    @media (min-width: 860px) {
+      .btn-logros {
+        display: none !important;
+      }
+      .modal-trofeos {
+        display: none !important;
+      }
+    }
+
+    /* Modal Superpuesto PS */
+    .modal-trofeos {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(8, 11, 19, 0.88);
+      backdrop-filter: blur(8px);
+      z-index: 9999;
+      overflow-y: auto;
+      padding: 16px;
+      box-sizing: border-box;
+    }
+    .modal-trofeos.activo {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .trofeos-container {
+      background: #0f141c;
+      border: 1.5px solid #1e293b;
+      border-radius: 18px;
+      max-width: 580px;
+      width: 100%;
+      margin: 20px auto;
+      color: #f1f5f9;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      font-family: inherit;
+    }
+
+    .trofeos-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1.5px solid #1e293b;
+      padding-bottom: 14px;
+      margin-bottom: 16px;
+    }
+    .trofeos-header h2 {
+      font-size: 1.1rem;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      margin: 0;
+      color: #f8fafc;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-cerrar-ps {
+      background: #1e293b;
+      border: none;
+      color: #94a3b8;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    /* Resumen de Piloto / Barra de Nivel */
+    .ps-level-card {
+      background: linear-gradient(145deg, #161f30 0%, #0d131f 100%);
+      border: 1px solid #29384d;
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+    .ps-level-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .ps-level-label {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #94a3b8;
+    }
+    .ps-level-pct {
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: #facc15;
+    }
+    .ps-bar-bg {
+      background: #090d14;
+      border-radius: 10px;
+      height: 8px;
+      overflow: hidden;
+      margin-bottom: 14px;
+    }
+    .ps-bar-fill {
+      background: linear-gradient(90deg, #38bdf8 0%, #facc15 100%);
+      height: 100%;
+      width: 0%;
+      transition: width 0.4s ease;
+    }
+    .ps-trophy-counters {
+      display: flex;
+      justify-content: space-around;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 10px;
+    }
+    .ps-counter-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.85rem;
+      font-weight: 800;
+    }
+
+    /* Categorías y Tarjetas */
+    .cat-title {
+      font-size: 0.82rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #38bdf8;
+      margin: 18px 0 10px 0;
+    }
+    .trophy-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+    .trophy-card {
+      background: #141b27;
+      border: 1px solid #1e293b;
+      border-radius: 12px;
+      padding: 12px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.25s ease;
+    }
+    .trophy-card.desbloqueado {
+      background: #152238;
+      border-color: #facc15;
+      box-shadow: 0 0 15px rgba(250, 204, 21, 0.08);
+    }
+    .trophy-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: 1;
+    }
+    .trophy-icon {
+      font-size: 1.4rem;
+      filter: grayscale(1);
+      opacity: 0.45;
+      transition: all 0.2s ease;
+    }
+    .trophy-card.desbloqueado .trophy-icon {
+      filter: grayscale(0);
+      opacity: 1;
+    }
+    .trophy-text .trophy-name {
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: #f1f5f9;
+      line-height: 1.2;
+    }
+    .trophy-text .trophy-desc {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #64748b;
+      margin-top: 3px;
+    }
+    .trophy-card.desbloqueado .trophy-text .trophy-name {
+      color: #fef08a;
+    }
+
+    /* Controles de Progreso */
+    .trophy-control {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-step {
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: #f8fafc;
+      border-radius: 6px;
+      width: 28px;
+      height: 28px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+    .step-display {
+      font-size: 0.8rem;
+      font-weight: 800;
+      min-width: 38px;
+      text-align: center;
+      color: #94a3b8;
+    }
+    .trophy-card.desbloqueado .step-display {
+      color: #facc15;
+    }
+    .btn-check-trophy {
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: #64748b;
+      border-radius: 8px;
+      padding: 6px 12px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .trophy-card.desbloqueado .btn-check-trophy {
+      background: #eab308;
+      border-color: #facc15;
+      color: #0f172a;
+    }
+
+    /* Misiones Secundarias (Horas extras lista libre) */
+    .extra-maneuvers-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 8px;
+    }
+    .extra-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #0b1017;
+      border: 1px solid #1e293b;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+    }
+
+    /* Notificación emergente estilo PS Trophy Pop-up */
+    .ps-popup-trophy {
+      position: fixed;
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(15, 23, 42, 0.95);
+      border: 1.5px solid #facc15;
+      border-radius: 40px;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 100000;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+      transition: top 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      pointer-events: none;
+    }
+    .ps-popup-trophy.mostrar {
+      top: 24px;
+    }
+    .ps-popup-icon {
+      font-size: 1.6rem;
+    }
+    .ps-popup-body {
+      display: flex;
+      flex-direction: column;
+    }
+    .ps-popup-tag {
+      font-size: 0.65rem;
+      font-weight: 900;
+      color: #facc15;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .ps-popup-name {
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: #ffffff;
+    }
   </style>
 </head>
 <body>
@@ -548,7 +858,10 @@
             <h1>LÍNEA 2 • REVISOR DE TURNOS</h1>
             <p>Consulta operativa de tableros de presencia</p>
           </div>
-          <button type="button" class="btn-toggle-semana" id="btnToggleSemana">📅 Mi Semana</button>
+          <div style="display: flex; gap: 6px;">
+            <button type="button" class="btn-logros" id="btnAbrirLogros">🏆 Logros</button>
+            <button type="button" class="btn-toggle-semana" id="btnToggleSemana">📅 Mi Semana</button>
+          </div>
         </div>
       </header>
 
@@ -595,6 +908,265 @@
         <!-- Se llena con JavaScript -->
       </div>
     </aside>
+  </div>
+  <!-- POPUP NOTIFICACIÓN PS (Flotante) -->
+  <div id="psPopupTrophy" class="ps-popup-trophy">
+    <div id="psPopupIcon" class="ps-popup-icon">🏆</div>
+    <div class="ps-popup-body">
+      <span class="ps-popup-tag">¡Trofeo Desbloqueado!</span>
+      <span id="psPopupName" class="ps-popup-name">Nombre del logro</span>
+    </div>
+  </div>
+
+  <!-- MODAL DE TROFEOS PLAYSTATION -->
+  <div id="modalTrofeos" class="modal-trofeos">
+    <div class="trofeos-container">
+      <div class="trofeos-header">
+        <h2>🏆 CHECKLIST SUPERNUMERARIO</h2>
+        <button type="button" class="btn-cerrar-ps" id="btnCerrarLogros">✕</button>
+      </div>
+
+      <!-- Resumen del Piloto -->
+      <div class="ps-level-card">
+        <div class="ps-level-top">
+          <span class="ps-level-label">Progreso de Liberación</span>
+          <span class="ps-level-pct" id="psProgresoPct">0%</span>
+        </div>
+        <div class="ps-bar-bg">
+          <div class="ps-bar-fill" id="psBarraFill"></div>
+        </div>
+        <div class="ps-trophy-counters">
+          <div class="ps-counter-item">🏆 <span id="cntPlatino">0/1</span></div>
+          <div class="ps-counter-item">🥇 <span id="cntOro">0/1</span></div>
+          <div class="ps-counter-item">🥈 <span id="cntPlata">0/8</span></div>
+          <div class="ps-counter-item">🥉 <span id="cntBronce">0/5</span></div>
+        </div>
+      </div>
+
+      <!-- Trofeo Platino -->
+      <div class="trophy-card" id="cardPlatino">
+        <div class="trophy-info">
+          <div class="trophy-icon">🏆</div>
+          <div class="trophy-text">
+            <div class="trophy-name">Conductor de verdad</div>
+            <div class="trophy-desc">Completa el 100% del checklist y sé liberado en Línea 2.</div>
+          </div>
+        </div>
+        <div class="step-display" id="statusPlatino">🔒</div>
+      </div>
+
+      <!-- Cat 1 -->
+      <div class="cat-title">Categoría 1: Kilometraje y Flota</div>
+      <div class="trophy-grid">
+        <div class="trophy-card" id="card_c1_1">
+          <div class="trophy-info">
+            <div class="trophy-icon">🥉</div>
+            <div class="trophy-text">
+              <div class="trophy-name">Paseo por el Valle</div>
+              <div class="trophy-desc">2 vueltas en horario valle en NS-16.</div>
+            </div>
+          </div>
+          <div class="trophy-control">
+            <button class="btn-step" type="button" onclick="modificarProgreso('c1_1', -1)">-</button>
+            <span class="step-display" id="dsp_c1_1">0/2</span>
+            <button class="btn-step" type="button" onclick="modificarProgreso('c1_1', 1)">+</button>
+          </div>
+        </div>
+
+        <div class="trophy-card" id="card_c1_2">
+          <div class="trophy-info">
+            <div class="trophy-icon">🥈</div>
+            <div class="trophy-text">
+              <div class="trophy-name">Permita bajar antes de subir</div>
+              <div class="trophy-desc">3 vueltas en hora punta en NS-16.</div>
+            </div>
+          </div>
+          <div class="trophy-control">
+            <button class="btn-step" type="button" onclick="modificarProgreso('c1_2', -1)">-</button>
+            <span class="step-display" id="dsp_c1_2">0/3</span>
+            <button class="btn-step" type="button" onclick="modificarProgreso('c1_2', 1)">+</button>
+          </div>
+        </div>
+
+        <div class="trophy-card" id="card_c1_3">
+          <div class="trophy-info">
+            <div class="trophy-icon">🥉</div>
+            <div class="trophy-text">
+              <div class="trophy-name">Tranquiluli</div>
+              <div class="trophy-desc">2 vueltas en horario valle en NS-04.</div>
+            </div>
+          </div>
+          <div class="trophy-control">
+            <button class="btn-step" type="button" onclick="modificarProgreso('c1_3', -1)">-</button>
+            <span class="step-display" id="dsp_c1_3">0/2</span>
+            <button class="btn-step" type="button" onclick="modificarProgreso('c1_3', 1)">+</button>
+          </div>
+        </div>
+
+        <div class="trophy-card" id="card_c1_4">
+          <div class="trophy-info">
+            <div class="trophy-icon">🥈</div>
+            <div class="trophy-text">
+              <div class="trophy-name">Respete el cierre de puertas</div>
+              <div class="trophy-desc">3 vueltas en hora punta en NS-04.</div>
+            </div>
+          </div>
+          <div class="trophy-control">
+            <button class="btn-step" type="button" onclick="modificarProgreso('c1_4', -1)">-</button>
+            <span class="step-display" id="dsp_c1_4">0/3</span>
+            <button class="btn-step" type="button" onclick="modificarProgreso('c1_4', 1)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cat 2 -->
+      <div class="cat-title">Categoría 2: Terminales y Foso</div>
+      <div class="trophy-grid">
+        <div class="trophy-card" id="card_c2_1">
+          <div class="trophy-info">
+            <div class="trophy-icon">🥉</div>
+            <div class="trophy-text">
+              <div class="trophy-name">Cambio de aceite</div>
+              <div class="trophy-desc">1 ingreso al Foso de Visitas de Hosp. El Pino.</div>
+            </div>
+          </div>
+          <button class="btn-check-trophy" type="button" onclick="toggleTrofeoSimple('c2_1')">Completar</button>
+        </div>
+
+        <div class="trophy-card" id="card_c2_2">
+          <div class="trophy-info">
+            <div class="trophy-icon">🥉</div>
+            <div class="trophy-text">
+              <div class="trophy-name">Punto O</div>
+              <div class="trophy-desc">1 salida del Foso de Visitas de Hosp. El Pino.</div>
+            </div>
+          </div>
+          <button class="btn-check-trophy" type="button" onclick="toggleTrofeoSimple('c2_2')">Completar</button>
+        </div>
+
+        <div class="trophy-card" id="card_c2_3">
+          <div class="trophy-info">
+            <div class="trophy-icon">🥈</div>
+            <div class="trophy-text">
+              <div class="trophy-name">Refuerzo</div>
+              <div class="trophy-desc">1 ingreso a cola de maniobras (CDV 16, 24 o 26) VN/PI.</div>
+            </div>
+          </div>
+          <button class="btn-check-trophy" type="button" onclick="toggleTrofeoSimple('c2_3')">Completar</button>
+        </div>
+
+        <div class="trophy-card" id="card_c2_4">
+          <div class="trophy-info">
+            <div class="trophy-icon">🥈</div>
+            <div class="trophy-text">
+              <div class="trophy-name">Prende los leds</div>
+              <div class="trophy-desc">1 salida de cola de maniobras (CDV 16, 24 o 26) VN/PI.</div>
+            </div>
+          </div>
+          <button class="btn-check-trophy" type="button" onclick="toggleTrofeoSimple('c2_4')">Completar</button>
+        </div>
+      </div>
+
+      <!-- Cat 3 -->
+      <div class="cat-title">Categoría 3: Cocheras y Estacionamientos</div>
+      <div class="trophy-grid">
+        <div class="trophy-card" id="card_c3_1">
+          <div class="trophy-info">
+            <div class="trophy-icon">🥈</div>
+            <div class="trophy-text">
+              <div class="trophy-name">Via Z</div>
+              <div class="trophy-desc">2 salidas de cocheras en LOC o VEC.</div>
+            </div>
+          </div>
+          <div class="trophy-control">
+            <button class="btn-step" type="button" onclick="modificarProgreso('c3_1', -1)">-</button>
+            <span class="step-display" id="dsp_c3_1">0/2</span>
+            <button class="btn-step" type="button" onclick="modificarProgreso('c3_1', 1)">+</button>
+          </div>
+        </div>
+
+        <div class="trophy-card" id="card_c3_2">
+          <div class="trophy-info">
+            <div class="trophy-icon">🥈</div>
+            <div class="trophy-text">
+              <div class="trophy-name">Garage</div>
+              <div class="trophy-desc">2 ingresos a cocheras en LOC o VEC.</div>
+            </div>
+          </div>
+          <div class="trophy-control">
+            <button class="btn-step" type="button" onclick="modificarProgreso('c3_2', -1)">-</button>
+            <span class="step-display" id="dsp_c3_2">0/2</span>
+            <button class="btn-step" type="button" onclick="modificarProgreso('c3_2', 1)">+</button>
+          </div>
+        </div>
+
+        <div class="trophy-card" id="card_c3_3">
+          <div class="trophy-info">
+            <div class="trophy-icon">🥈</div>
+            <div class="trophy-text">
+              <div class="trophy-name">A mimir</div>
+              <div class="trophy-desc">1 estacionar tren en Turno 2 (Línea o terminal).</div>
+            </div>
+          </div>
+          <button class="btn-check-trophy" type="button" onclick="toggleTrofeoSimple('c3_3')">Completar</button>
+        </div>
+
+        <div class="trophy-card" id="card_c3_4">
+          <div class="trophy-info">
+            <div class="trophy-icon">🥈</div>
+            <div class="trophy-text">
+              <div class="trophy-name">Madrugador</div>
+              <div class="trophy-desc">1 sacar tren de estacionamiento en Turno 1.</div>
+            </div>
+          </div>
+          <button class="btn-check-trophy" type="button" onclick="toggleTrofeoSimple('c3_4')">Completar</button>
+        </div>
+      </div>
+
+      <!-- Cat 4 -->
+      <div class="cat-title">Categoría 4: Maniobras Adicionales</div>
+      <div class="trophy-grid">
+        <div class="trophy-card" id="card_c4_1">
+          <div class="trophy-info">
+            <div class="trophy-icon">🥉</div>
+            <div class="trophy-text">
+              <div class="trophy-name">Cochereo</div>
+              <div class="trophy-desc">Maniobras en Vía Z, Vía T, Vía L, etc.</div>
+            </div>
+          </div>
+          <button class="btn-check-trophy" type="button" onclick="toggleTrofeoSimple('c4_1')">Completar</button>
+        </div>
+
+        <div class="trophy-card" id="card_c4_2">
+          <div class="trophy-info">
+            <div class="trophy-icon">🥇</div>
+            <div class="trophy-text">
+              <div class="trophy-name">Visitante</div>
+              <div class="trophy-desc">Maniobra exclusiva de enlace a Línea 5.</div>
+            </div>
+          </div>
+          <button class="btn-check-trophy" type="button" onclick="toggleTrofeoSimple('c4_2')">Completar</button>
+        </div>
+
+        <!-- Horas Extras / Registro libre -->
+        <div class="trophy-card" id="card_c4_3" style="flex-direction: column; align-items: stretch; gap: 8px;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="trophy-info">
+              <div class="trophy-icon">🥉</div>
+              <div class="trophy-text">
+                <div class="trophy-name">Horas extras</div>
+                <div class="trophy-desc">Registro de maniobras adicionales libres.</div>
+              </div>
+            </div>
+          </div>
+          <div style="display: flex; gap: 6px; margin-top: 4px;">
+            <input type="text" id="inputExtra" placeholder="Ej: Vía L tren 204..." style="flex:1; background:#090d14; border:1px solid #334155; color:#fff; padding:6px 10px; border-radius:6px; font-size:0.75rem; outline:none;" />
+            <button type="button" class="btn-step" style="width: auto; padding: 0 12px;" onclick="agregarManiobraExtra()">+</button>
+          </div>
+          <div id="listaExtras" class="extra-maneuvers-list"></div>
+        </div>
+      </div>
+    </div>
   </div>
 <script>
   // 1. Decodificador de terminales y recintos operativos
@@ -3475,6 +4047,220 @@
       jornadas: { "6X2-42h": { ini: "23:00", fin: "07:00" }, "5X2_40h": { ini: "23:00", fin: "07:00" }, "FLEX": { ini: "23:00", fin: "07:00" }, "AOS": { ini: "21:55", fin: "06:55" }, "PT": { ini: "23:00", fin: "07:00" } }
     }
   };
+  // -------------------------------------------------------------
+  // MÓDULO: CHECKLIST SUPERNUMERARIO - MOTOR DE LOGROS PLAYSTATION
+  // -------------------------------------------------------------
+  const METAS_LOGROS = {
+    c1_1: { meta: 2, nombre: 'Paseo por el Valle', tipo: 'bronce' },
+    c1_2: { meta: 3, nombre: 'Permita bajar antes de subir', tipo: 'plata' },
+    c1_3: { meta: 2, nombre: 'Tranquiluli', tipo: 'bronce' },
+    c1_4: { meta: 3, nombre: 'Respete el cierre de puertas', tipo: 'plata' },
+    c2_1: { meta: 1, nombre: 'Cambio de aceite', tipo: 'bronce' },
+    c2_2: { meta: 1, nombre: 'Punto O', tipo: 'bronce' },
+    c2_3: { meta: 1, nombre: 'Refuerzo', tipo: 'plata' },
+    c2_4: { meta: 1, nombre: 'Prende los leds', tipo: 'plata' },
+    c3_1: { meta: 2, nombre: 'Via Z', tipo: 'plata' },
+    c3_2: { meta: 2, nombre: 'Garage', tipo: 'plata' },
+    c3_3: { meta: 1, nombre: 'A mimir', tipo: 'plata' },
+    c3_4: { meta: 1, nombre: 'Madrugador', tipo: 'plata' },
+    c4_1: { meta: 1, nombre: 'Cochereo', tipo: 'bronce' },
+    c4_2: { meta: 1, nombre: 'Visitante', tipo: 'oro' },
+    c4_3: { meta: 1, nombre: 'Horas extras', tipo: 'bronce' }
+  };
+
+  function obtenerDatosTrofeos() {
+    try {
+      return JSON.parse(localStorage.getItem('metro_trofeos_data')) || { progreso: {}, extras: [] };
+    } catch (e) {
+      return { progreso: {}, extras: [] };
+    }
+  }
+
+  function guardarDatosTrofeos(data) {
+    localStorage.setItem('metro_trofeos_data', JSON.stringify(data));
+    actualizarVistaTrofeos();
+  }
+
+  function mostrarPopUpPS(nombreLogro, tipo) {
+    const popup = document.getElementById('psPopupTrophy');
+    const nameEl = document.getElementById('psPopupName');
+    const iconEl = document.getElementById('psPopupIcon');
+    if (!popup) return;
+
+    const iconos = { platino: '🏆', oro: '🥇', plata: '🥈', bronce: '🥉' };
+    iconEl.textContent = iconos[tipo] || '🏆';
+    nameEl.textContent = nombreLogro;
+
+    popup.classList.add('mostrar');
+    setTimeout(() => {
+      popup.classList.remove('mostrar');
+    }, 3500);
+  }
+
+  function modificarProgreso(id, delta) {
+    const data = obtenerDatosTrofeos();
+    const actual = data.progreso[id] || 0;
+    const meta = METAS_LOGROS[id].meta;
+    const nuevo = Math.max(0, Math.min(meta, actual + delta));
+
+    if (nuevo !== actual) {
+      data.progreso[id] = nuevo;
+      guardarDatosTrofeos(data);
+      if (nuevo === meta) {
+        mostrarPopUpPS(METAS_LOGROS[id].nombre, METAS_LOGROS[id].tipo);
+      }
+    }
+  }
+
+  function toggleTrofeoSimple(id) {
+    const data = obtenerDatosTrofeos();
+    const actual = data.progreso[id] || 0;
+    const meta = METAS_LOGROS[id].meta;
+    const nuevo = actual >= meta ? 0 : meta;
+
+    data.progreso[id] = nuevo;
+    guardarDatosTrofeos(data);
+    if (nuevo === meta) {
+      mostrarPopUpPS(METAS_LOGROS[id].nombre, METAS_LOGROS[id].tipo);
+    }
+  }
+
+  function agregarManiobraExtra() {
+    const input = document.getElementById('inputExtra');
+    const val = input.value.trim();
+    if (!val) return;
+
+    const data = obtenerDatosTrofeos();
+    if (!data.extras) data.extras = [];
+    data.extras.push(val);
+
+    const eraCero = (data.progreso['c4_3'] || 0) === 0;
+    data.progreso['c4_3'] = 1;
+    input.value = '';
+    guardarDatosTrofeos(data);
+
+    if (eraCero) {
+      mostrarPopUpPS(METAS_LOGROS['c4_3'].nombre, METAS_LOGROS['c4_3'].tipo);
+    }
+  }
+
+  function eliminarManiobraExtra(idx) {
+    const data = obtenerDatosTrofeos();
+    if (data.extras && data.extras[idx] !== undefined) {
+      data.extras.splice(idx, 1);
+      if (data.extras.length === 0) {
+        data.progreso['c4_3'] = 0;
+      }
+      guardarDatosTrofeos(data);
+    }
+  }
+
+  function actualizarVistaTrofeos() {
+    const data = obtenerDatosTrofeos();
+    let totalCompletados = 0;
+    let cntB = 0, cntP = 0, cntO = 0;
+    const totalItems = Object.keys(METAS_LOGROS).length;
+
+    Object.keys(METAS_LOGROS).forEach(id => {
+      const info = METAS_LOGROS[id];
+      const val = data.progreso[id] || 0;
+      const cumplido = val >= info.meta;
+      const card = document.getElementById(`card_${id}`);
+
+      if (cumplido) {
+        totalCompletados++;
+        if (info.tipo === 'bronce') cntB++;
+        if (info.tipo === 'plata') cntP++;
+        if (info.tipo === 'oro') cntO++;
+      }
+
+      if (card) {
+        if (cumplido) card.classList.add('desbloqueado');
+        else card.classList.remove('desbloqueado');
+
+        const display = document.getElementById(`dsp_${id}`);
+        if (display) display.textContent = `${val}/${info.meta}`;
+
+        const btnCheck = card.querySelector('.btn-check-trophy');
+        if (btnCheck) {
+          btnCheck.textContent = cumplido ? '✓ Listo' : 'Completar';
+        }
+      }
+    });
+
+    // Lista de maniobras extras
+    const listaExtras = document.getElementById('listaExtras');
+    if (listaExtras) {
+      listaExtras.innerHTML = (data.extras || []).map((txt, i) => `
+        <div class="extra-item">
+          <span>• ${txt}</span>
+          <span style="color:#ef4444; cursor:pointer; font-weight:800;" onclick="eliminarManiobraExtra(${i})">✕</span>
+        </div>
+      `).join('');
+    }
+
+    // Progreso general
+    const pct = Math.round((totalCompletados / totalItems) * 100);
+    const barra = document.getElementById('psBarraFill');
+    const txtPct = document.getElementById('psProgresoPct');
+    if (barra) barra.style.width = `${pct}%`;
+    if (txtPct) txtPct.textContent = `${pct}%`;
+
+    // Contadores de trofeos
+    const dspB = document.getElementById('cntBronce');
+    const dspP = document.getElementById('cntPlata');
+    const dspO = document.getElementById('cntOro');
+    const dspPlat = document.getElementById('cntPlatino');
+    if (dspB) dspB.textContent = `${cntB}/5`;
+    if (dspP) dspP.textContent = `${cntP}/8`;
+    if (dspO) dspO.textContent = `${cntO}/1`;
+
+    // Trofeo Platino ("Conductor de verdad")
+    const cardPlat = document.getElementById('cardPlatino');
+    const statusPlat = document.getElementById('statusPlatino');
+    const eraPlatino = data.platinoDesbloqueado || false;
+
+    if (totalCompletados === totalItems) {
+      if (cardPlat) cardPlat.classList.add('desbloqueado');
+      if (statusPlat) statusPlat.textContent = '🏆 OBTENIDO';
+      if (dspPlat) dspPlat.textContent = '1/1';
+
+      if (!eraPlatino) {
+        data.platinoDesbloqueado = true;
+        localStorage.setItem('metro_trofeos_data', JSON.stringify(data));
+        mostrarPopUpPS('Conductor de verdad', 'platino');
+      }
+    } else {
+      if (cardPlat) cardPlat.classList.remove('desbloqueado');
+      if (statusPlat) statusPlat.textContent = '🔒';
+      if (dspPlat) dspPlat.textContent = '0/1';
+      if (eraPlatino) {
+        data.platinoDesbloqueado = false;
+        localStorage.setItem('metro_trofeos_data', JSON.stringify(data));
+      }
+    }
+  }
+
+  // Manejo de apertura y cierre del modal
+  const btnAbrirModal = document.getElementById('btnAbrirLogros');
+  const btnCerrarModal = document.getElementById('btnCerrarLogros');
+  const modalTrofeos = document.getElementById('modalTrofeos');
+
+  if (btnAbrirModal && modalTrofeos) {
+    btnAbrirModal.addEventListener('click', () => {
+      modalTrofeos.classList.add('activo');
+      actualizarVistaTrofeos();
+    });
+  }
+
+  if (btnCerrarModal && modalTrofeos) {
+    btnCerrarModal.addEventListener('click', () => {
+      modalTrofeos.classList.remove('activo');
+    });
+  }
+
+  // Inicializar estado al cargar la app
+  actualizarVistaTrofeos();
 </script>
 </body>
 </html>
