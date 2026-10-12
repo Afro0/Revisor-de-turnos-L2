@@ -871,7 +871,7 @@
       <!-- Selector Manual de Día -->
       <div class="day-selector">
         <button class="btn-day active" data-day="DL">Lun - Jue</button>
-        <button class="btn-day" data-day="DV">Viernes</button>
+        <button class="btn-day" data-day="DV">Viernes/Supernumerario</button>
         <button class="btn-day" data-day="DS">Sábado</button>
         <button class="btn-day" data-day="DF">Dom/Fest</button>
       </div>
@@ -2787,6 +2787,7 @@
       jornadas: { "6X2-42h": { ini: "21:55", fin: "05:55" }, "5X2_40h": { ini: "21:55", fin: "05:55" }, "FLEX": { ini: "21:55", fin: "05:55" }, "AOS": { ini: "21:55", fin: "06:55" }, "PT": { ini: "21:55", fin: "05:55" } }
     }
   };
+
   // Variable temporal de Viernes para que no dé error mientras la cargamos
   const SERVICIOS_DV = {
   "21101": {
@@ -4045,7 +4046,63 @@
     "243MN": {
       servicio: "243MN", esReserva: true, lugarIni: "VEC", lugarFin: "VEC", colacion: "RESERVA",
       jornadas: { "6X2-42h": { ini: "23:00", fin: "07:00" }, "5X2_40h": { ini: "23:00", fin: "07:00" }, "FLEX": { ini: "23:00", fin: "07:00" }, "AOS": { ini: "21:55", fin: "06:55" }, "PT": { ini: "23:00", fin: "07:00" } }
-    }
+    },
+	// --- SERVICIOS SUPERNUMERARIO (LÍNEA 2) ---
+  // Terminal 1 (PI)
+  "211RSUP": {
+    servicio: "211RSUP", esReserva: true, lugarIni: "PI", lugarFin: "PI", colacion: "RESERVA",
+    jornadas: { "6X2-42h": { ini: "05:45", fin: "--:--" }, "5X2_40h": { ini: "05:45", fin: "--:--" }, "FLEX": { ini: "05:45", fin: "--:--" }, "A05": { ini: "05:45", fin: "--:--" }, "P7": { ini: "05:45", fin: "--:--" } }
+  },
+  "212RSUP": {
+    servicio: "212RSUP", esReserva: true, lugarIni: "PI", lugarFin: "PI", colacion: "RESERVA",
+    jornadas: { "6X2-42h": { ini: "14:15", fin: "--:--" }, "5X2_40h": { ini: "14:15", fin: "--:--" }, "FLEX": { ini: "14:15", fin: "--:--" }, "A05": { ini: "14:15", fin: "--:--" }, "P7": { ini: "14:15", fin: "--:--" } }
+  },
+  "213RSUP": {
+    servicio: "213RSUP", esReserva: true, lugarIni: "PI", lugarFin: "PI", colacion: "RESERVA",
+    jornadas: { "6X2-42h": { ini: "22:00", fin: "--:--" }, "5X2_40h": { ini: "22:00", fin: "--:--" }, "FLEX": { ini: "22:00", fin: "--:--" }, "A05": { ini: "22:00", fin: "--:--" }, "P7": { ini: "22:00", fin: "--:--" } }
+  },
+
+  // Terminal 2 (AV)
+  "221RSUP": {
+    servicio: "221RSUP", esReserva: true, lugarIni: "AV", lugarFin: "AV", colacion: "RESERVA",
+    jornadas: { "6X2-42h": { ini: "05:45", fin: "--:--" }, "5X2_40h": { ini: "05:45", fin: "--:--" }, "FLEX": { ini: "05:45", fin: "--:--" }, "A05": { ini: "05:45", fin: "--:--" }, "P7": { ini: "05:45", fin: "--:--" } }
+  },
+  "222RSUP": {
+    servicio: "222RSUP", esReserva: true, lugarIni: "AV", lugarFin: "AV", colacion: "RESERVA",
+    jornadas: { "6X2-42h": { ini: "14:15", fin: "--:--" }, "5X2_40h": { ini: "14:15", fin: "--:--" }, "FLEX": { ini: "14:15", fin: "--:--" }, "A05": { ini: "14:15", fin: "--:--" }, "P7": { ini: "14:15", fin: "--:--" } }
+  },
+  "223RSUP": {
+    servicio: "223RSUP", esReserva: true, lugarIni: "AV", lugarFin: "AV", colacion: "RESERVA",
+    jornadas: { "6X2-42h": { ini: "22:00", fin: "--:--" }, "5X2_40h": { ini: "22:00", fin: "--:--" }, "FLEX": { ini: "22:00", fin: "--:--" }, "A05": { ini: "22:00", fin: "--:--" }, "P7": { ini: "22:00", fin: "--:--" } }
+  },
+
+  // Terminal 3 (LOC)
+  "231RSUP": {
+    servicio: "231RSUP", esReserva: true, lugarIni: "LOC", lugarFin: "LOC", colacion: "RESERVA",
+    jornadas: { "6X2-42h": { ini: "05:45", fin: "--:--" }, "5X2_40h": { ini: "05:45", fin: "--:--" }, "FLEX": { ini: "05:45", fin: "--:--" }, "A05": { ini: "05:45", fin: "--:--" }, "P7": { ini: "05:45", fin: "--:--" } }
+  },
+  "232RSUP": {
+    servicio: "232RSUP", esReserva: true, lugarIni: "LOC", lugarFin: "LOC", colacion: "RESERVA",
+    jornadas: { "6X2-42h": { ini: "14:15", fin: "--:--" }, "5X2_40h": { ini: "14:15", fin: "--:--" }, "FLEX": { ini: "14:15", fin: "--:--" }, "A05": { ini: "14:15", fin: "--:--" }, "P7": { ini: "14:15", fin: "--:--" } }
+  },
+  "233RSUP": {
+    servicio: "233RSUP", esReserva: true, lugarIni: "LOC", lugarFin: "LOC", colacion: "RESERVA",
+    jornadas: { "6X2-42h": { ini: "22:00", fin: "--:--" }, "5X2_40h": { ini: "22:00", fin: "--:--" }, "FLEX": { ini: "22:00", fin: "--:--" }, "A05": { ini: "22:00", fin: "--:--" }, "P7": { ini: "22:00", fin: "--:--" } }
+  },
+
+  // Terminal 4 (VEC)
+  "241RSUP": {
+    servicio: "241RSUP", esReserva: true, lugarIni: "VEC", lugarFin: "VEC", colacion: "RESERVA",
+    jornadas: { "6X2-42h": { ini: "05:45", fin: "--:--" }, "5X2_40h": { ini: "05:45", fin: "--:--" }, "FLEX": { ini: "05:45", fin: "--:--" }, "A05": { ini: "05:45", fin: "--:--" }, "P7": { ini: "05:45", fin: "--:--" } }
+  },
+  "242RSUP": {
+    servicio: "242RSUP", esReserva: true, lugarIni: "VEC", lugarFin: "VEC", colacion: "RESERVA",
+    jornadas: { "6X2-42h": { ini: "14:15", fin: "--:--" }, "5X2_40h": { ini: "14:15", fin: "--:--" }, "FLEX": { ini: "14:15", fin: "--:--" }, "A05": { ini: "14:15", fin: "--:--" }, "P7": { ini: "14:15", fin: "--:--" } }
+  },
+  "243RSUP": {
+    servicio: "243RSUP", esReserva: true, lugarIni: "VEC", lugarFin: "VEC", colacion: "RESERVA",
+    jornadas: { "6X2-42h": { ini: "22:00", fin: "--:--" }, "5X2_40h": { ini: "22:00", fin: "--:--" }, "FLEX": { ini: "22:00", fin: "--:--" }, "A05": { ini: "22:00", fin: "--:--" }, "P7": { ini: "22:00", fin: "--:--" } }
+  },
   };
   // -------------------------------------------------------------
   // MÓDULO: CHECKLIST SUPERNUMERARIO - MOTOR DE LOGROS PLAYSTATION
